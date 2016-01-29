@@ -1,0 +1,84 @@
+.tender-container {
+  height: 400px;
+  width: 360px;
+  max-width: 100%;
+  margin: auto;
+  border: 1px solid @df-blue;
+  position: relative;
+  overflow: hidden;
+  background: black;
+  font-family: @df-sans;
+  font-weight: bold;
+
+  .swipe-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &.transition {
+      transition: all .3s ease-in-out;
+    }
+
+    &.whiteout {
+      opacity: 0;
+    }
+
+    h1 {
+      color: white;
+      font-size: 40px;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 16px;
+      text-shadow: 0 0 4px black;
+    }
+  }
+
+  .side {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+
+    .content {
+      padding: 16px;
+      width: 25%;
+      bottom: 0;
+      position: absolute;
+      color: white;
+    }
+
+    &.left {
+      right: 50%;
+      text-align: right;
+      background: teal;
+
+      .content {
+        right: 0;
+
+        &::after {
+          content: ">";
+        }
+      }
+    }
+
+    &.right {
+      left: 50%;
+      text-align: left;
+      background: salmon;
+
+      .content {
+        left: 0;
+
+        &::before {
+          content: "<";
+        }
+      }
+    }
+
+  }
+}

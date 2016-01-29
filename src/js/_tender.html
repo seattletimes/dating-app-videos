@@ -1,0 +1,9 @@
+<h1><%= data.headline %></h1>
+<% ["left", "right"].forEach(function(s) { %>
+<% var side = data[s]; %>
+  <div class="<%= s %> side">
+    <div class="content">
+      <%= side.text %>
+    </div>
+  </div>
+<% }); %>
