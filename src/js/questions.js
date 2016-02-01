@@ -8,5 +8,10 @@ module.exports = [
     headline: "This space intentionally left blank.",
     left: { text: "A", value: "a" },
     right: { text: "B", value: "b" }
+  },
+  {
+    headline: "This space intentionally left blank.",
+    left: { text: "A", value: "a" },
+    right: { text: "B", value: "b" }
   }
 ];

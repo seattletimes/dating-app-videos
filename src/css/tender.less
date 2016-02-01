@@ -12,6 +12,24 @@
     height: 100px;
     display: block;
     position: relative;
+    padding: 20px 0;
+
+    .thumbnail {
+      position: absolute;
+
+      &:first-child {
+        left: 10px;
+      }
+
+      &:nth-child(2) {
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      &:nth-child(3) {
+        right: 10px;
+      }
+    }
   }
 
   .thumbnail {
