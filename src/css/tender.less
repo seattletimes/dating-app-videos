@@ -1,21 +1,38 @@
 .tender-container {
-  height: 400px;
   width: 360px;
   max-width: 100%;
   margin: auto;
-  border: 1px solid @df-blue;
+  border: 1px dotted @df-blue;
   position: relative;
   overflow: hidden;
-  background: black;
   font-family: @df-sans;
   font-weight: bold;
 
+  .playlist-selection {
+    height: 100px;
+    display: block;
+    position: relative;
+  }
+
+  .thumbnail {
+    width: 100px;
+    height: 100px * 9 / 16;
+    background: black;
+
+    &.pending {
+      position: absolute;
+      top: 50%;
+
+      &.left { left: 30px; }
+      &.right { right: 30px; }
+    }
+
+  }
+
   .swipe-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
 
     &.transition {
       transition: all .3s ease-in-out;
@@ -36,6 +53,18 @@
       z-index: 999;
       padding: 16px;
       text-shadow: 0 0 4px black;
+    }
+
+    &.right-leaning .left.side .content,
+    &.left-leaning .right.side .content {
+      color: transparent;
+      transition: color .4s linear;
+    }
+
+    &.right-leaning .right.side .content,
+    &.left-leaning .left.side .content {
+      font-size: 150%;
+      transition: font-size .4s ease-in-out;
     }
   }
 

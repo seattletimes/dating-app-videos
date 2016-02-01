@@ -1,9 +1,13 @@
+<% var keys = ["left", "right"]; %>
 <h1><%= data.headline %></h1>
-<% ["left", "right"].forEach(function(s) { %>
+<% keys.forEach(function(s) { %>
 <% var side = data[s]; %>
   <div class="<%= s %> side">
     <div class="content">
       <%= side.text %>
     </div>
   </div>
+<% }); %>
+<% keys.forEach(function(s) { %>
+<div class="<%= s %> pending thumbnail" data-id="<%= data[s].video %>"></div>
 <% }); %>
