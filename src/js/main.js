@@ -8,27 +8,23 @@ var swipeContainer = document.querySelector(".swipe-container");
 var Tender = require("./tender");
 var questions = require("./questions");
 
-var t = new Tender(swipeContainer, questions);
-
-
-// var bc = require("./brightcove");
+var bc = require("./brightcove");
 
 var dynamicPlaylist = 4720293201001;
 
-// bc(function(player) {
-//   player.catalog.getPlaylist(dynamicPlaylist, function(err, playlist) {
+bc(function(player) {
+  player.catalog.getPlaylist(dynamicPlaylist, function(err, playlist) {
 
-//     var index = 0;
+    questions.forEach(function(q, i) {
+      q.left.video = playlist[i * 2];
+      q.right.video = playlist[i * 2 + 1];
+    });
 
-//     player.catalog.load(playlist[index]);
+    console.log(questions);
 
-//     player.on("ended", function() {
-//       console.log(++index);
-//       player.catalog.load(playlist[index]);
-//       player.play();
-//     });
+    var t = new Tender(swipeContainer, questions);
 
-//   });
-// });
+  });
+});
 
 

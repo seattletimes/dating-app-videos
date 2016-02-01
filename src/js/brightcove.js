@@ -5,7 +5,7 @@ var src="//players.brightcove.net/1509317113/default_default/index.min.js";
 var script = document.createElement("script");
 script.src = src;
 script.onload = function() {
-  player = videojs("player");
+  player = videojs("bc-player");
   player.ready(function() {
     callbacks.forEach(fn => fn(player));
   });

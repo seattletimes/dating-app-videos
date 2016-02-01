@@ -2,7 +2,7 @@ var Hammer = require("hammerjs/hammer.min");
 var dot = require("./lib/dot");
 var template = dot.compile(require("./_tender.html"));
 
-var transform = "webkitTransform" in document.body.style ? "webkitTransform" : "transform";
+var flip = require("./flip");
 
 class Tender {
   constructor(element, questions) {
@@ -82,21 +82,13 @@ class Tender {
   migrateThumbnail(side) {
     var selected = this.element.querySelector(`.${side}.thumbnail`);
     if (!selected) return console.log(`No thumbnail for ${side}`);
-    var first = selected.getBoundingClientRect();
-    selected.classList.remove(side);
-    selected.classList.remove("pending");
-    selected.parentElement.removeChild(selected);
-    var playlist = document.querySelector(".playlist-selection");
-    playlist.appendChild(selected);
-    var last = selected.getBoundingClientRect();
-    var diff = {
-      x: first.left - last.left,
-      y: first.top - last.top
-    };
-    selected.style[transform] = `translateX(${diff.x}px) translateY(${diff.y}px)`;
-    var reflow = selected.offsetWidth;
-    selected.style.transition = "all .5s ease-in-out";
-    selected.style[transform] = "";
+    flip(selected, function() {
+      selected.classList.remove(side);
+      selected.classList.remove("pending");
+      selected.parentElement.removeChild(selected);
+      var playlist = document.querySelector(".playlist-selection");
+      playlist.appendChild(selected);
+    });
   }
 
   conclude() {

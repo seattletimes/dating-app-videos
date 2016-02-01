@@ -9,5 +9,7 @@
   </div>
 <% }); %>
 <% keys.forEach(function(s) { %>
-<div class="<%= s %> pending thumbnail" data-id="<%= data[s].video %>"></div>
+<div class="<%= s %> pending thumbnail" data-id="<%= data[s].video.id %>">
+  <img src="<%= data[s].video.thumbnail %>">
+</div>
 <% }); %>
