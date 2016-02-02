@@ -18,15 +18,16 @@
 
   &::before {
     position: absolute;
-    bottom: calc(~"100% + 30px");
+    top: calc(~"100% + 30px");
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-    width: 20px;
+    width: 60px;
     height: 20px;
-    border-radius: 100%;
+    border-radius: 10px;
     border: 1px solid fade(white, 50%);
     content: "";
+    box-shadow: inset -4px -4px 4px fade(white, 30%);
 
     @media @mobile {
       display: none;
