@@ -5,10 +5,11 @@ var template = dot.compile(require("./_tender.html"));
 var flip = require("./flip");
 
 class Tender {
-  constructor(element, questions) {
+  constructor(element, questions, player) {
     this.element = element;
     this.mc = new Hammer(this.element);
     this.questions = questions;
+    this.player = player;
     this.index = 0;
     this.winners = [];
     this.animating = false;
@@ -25,6 +26,7 @@ class Tender {
     });
 
     this.mc.on("pan", function(e) {
+      self.element.classList.add("moving");
       var x = e.deltaX;
       var max = self.element.getBoundingClientRect().width / 2;
       if (x > max) x = max;
@@ -36,6 +38,8 @@ class Tender {
 
     this.mc.on("panend", function(e) {
       if (self.animating) return;
+
+      self.element.classList.remove("moving");
 
       self.element.classList.remove("left-leaning");
       self.element.classList.remove("right-leaning");
@@ -96,7 +100,10 @@ class Tender {
   }
 
   conclude() {
-    console.log("Finished");
+    var self = this;
+    this.player.catalog.load(this.winners.map(w => w.video));
+    this.player.play();
+    document.body.classList.add("play-video");
   }
 }
 
