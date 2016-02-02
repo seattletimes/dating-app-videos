@@ -6,7 +6,6 @@
   position: relative;
   overflow: hidden;
   font-family: @df-sans;
-  font-weight: bold;
 
   .playlist-selection {
     height: 100px;
@@ -14,10 +13,23 @@
     position: relative;
     padding: 20px 0;
 
+    &::before {
+      content: "Playlist selection";
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-weight: normal;
+      color: @df-middle-gray;
+    }
+
     .thumbnail {
       position: absolute;
-      box-shadow: 0 4px 16px fade(black, 12%), 0 12px 6px fade(black, 20%);
-      width: 25%;
+      box-shadow: 0 12px 16px fade(black, 8%), 0 4px 4px fade(black, 12%);
+      width: 30%;
 
       &:first-child {
         left: 10px;
@@ -45,7 +57,7 @@
 
     &.pending {
       position: absolute;
-      top: 30%;
+      top: 40%;
 
       &.left { left: 10px; }
       &.right { right: 10px; }
@@ -111,7 +123,7 @@
       font-size: 20px;
       transition: opacity .4s linear;
       line-height: 1;
-      font-weight: normal;
+      font-weight: bold;
       text-align: center;
 
       &::after, &::before {
@@ -124,7 +136,7 @@
     &.left {
       right: 50%;
       text-align: right;
-      background: teal;
+      background: desaturate(cornflowerblue, 40%);
 
       .content {
         right: 0;
@@ -139,7 +151,7 @@
     &.right {
       left: 50%;
       text-align: left;
-      background: salmon;
+      background: desaturate(slateblue, 40%);
 
       .content {
         left: 0;

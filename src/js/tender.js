@@ -25,7 +25,11 @@ class Tender {
     });
 
     this.mc.on("pan", function(e) {
-      self.element.style.transform = `translateX(${e.deltaX}px)`
+      var x = e.deltaX;
+      var max = self.element.getBoundingClientRect().width / 2;
+      if (x > max) x = max;
+      if (x < -max) x = -max;
+      self.element.style.transform = `translateX(${x}px)`
       self.element.classList.add(e.deltaX < 0 ? "right-leaning" : "left-leaning");
       self.element.classList.remove(e.deltaX < 0 ? "left-leaning" : "right-leaning");
     });
