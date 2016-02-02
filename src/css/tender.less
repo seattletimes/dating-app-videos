@@ -44,9 +44,11 @@
     position: relative;
     transition: height @transition-time ease-in-out;
     box-shadow: inset 0 0 16px fade(black, 20%);
+    z-index: 999;
 
     .play-video & {
       height: 0px;
+      overflow: hidden;
     }
 
     &::before {
@@ -80,6 +82,13 @@
 
       &:nth-child(3) {
         right: 10px;
+      }
+
+      &.dummy {
+        height: 60px;
+        border: 2px dashed black;
+        background: white;
+        z-index: -999;
       }
     }
   }
@@ -139,7 +148,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 999;
+      z-index: 99999;
       padding: 16px;
     }
 
@@ -189,7 +198,7 @@
     &.left {
       right: 50%;
       text-align: right;
-      background: desaturate(cornflowerblue, 40%);
+      background: desaturate(salmon, 40%);
 
       .content {
         right: 0;

@@ -1,5 +1,7 @@
 <div class="tender-container">
-  <div class="playlist-selection"></div>
+  <div class="swipe-viewport">
+    <div class="swipe-container"></div>
+  </div>
   <div class="video-container">
     <div class="aspect-inner">
       <video
@@ -10,7 +12,11 @@
       ></video>
     </div>
   </div>
-  <div class="swipe-viewport">
-    <div class="swipe-container"></div>
+  <div class="playlist-selection">
+    <div class="dummy-outlines">
+      <% for (var i = 0; i < 3; i++) { %>
+      <div class="dummy thumbnail"></div>
+      <% } %>
+    </div>
   </div>
 </div>

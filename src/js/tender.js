@@ -95,7 +95,7 @@ class Tender {
       selected.classList.remove("pending");
       selected.parentElement.removeChild(selected);
       var playlist = document.querySelector(".playlist-selection");
-      playlist.appendChild(selected);
+      playlist.insertBefore(selected, playlist.lastElementChild);
     });
   }
 

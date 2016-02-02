@@ -15,7 +15,6 @@ var dynamicPlaylist = 4720293201001;
 bc(function(player) {
   player.catalog.getPlaylist(dynamicPlaylist, function(err, playlist) {
     if (err) console.log(err);
-    console.log(playlist);
 
     questions.forEach(function(q, i) {
       q.left.video = playlist[i * 2];
