@@ -11,11 +11,17 @@
 
       <%= t.include("partials/_nav.html") %>
 
-      <%= t.include("partials/_ad.html", { type: "banner" }) %>
+      <main>
 
-      <h1>What's your sign?</h1>
+        <%= t.include("partials/_ad.html", { type: "banner" }) %>
 
-      <%= t.include("_tenderContainer.html") %>
+        <h1>What's your sign?</h1>
+
+        <section class="interactive">
+          <%= t.include("_tenderContainer.html") %>
+        </section>
+
+      </main>
 
       <%= t.include("partials/_navBottom.html") %>
 

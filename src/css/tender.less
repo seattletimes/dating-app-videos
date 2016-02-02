@@ -14,10 +14,11 @@
   }
 
   .playlist-selection {
-    height: 140px;
+    height: 96px;
     display: block;
     position: relative;
     transition: height @transition-time ease-in-out;
+    box-shadow: inset 0 0 16px fade(black, 20%);
 
     .play-video & {
       height: 0px;
@@ -27,6 +28,7 @@
       content: "Playlist selection";
       text-align: center;
       text-transform: uppercase;
+      letter-spacing: 2px;
       font-size: 15px;
       position: absolute;
       top: 0;
@@ -81,6 +83,7 @@
     height: 300px;
     cursor: grab;
     transition: height @transition-time ease-in-out;
+    overflow: hidden;
 
     &.moving {
       cursor: grabbing;
