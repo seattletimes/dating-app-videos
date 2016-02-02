@@ -12,6 +12,10 @@
   border-radius: 20px;
   transition: width @transition-time ease-in-out, border @transition-time ease-in-out;
 
+  @media @mobile {
+    border: none;
+  }
+
   &::before {
     position: absolute;
     bottom: calc(~"100% + 30px");
@@ -23,6 +27,10 @@
     border-radius: 100%;
     border: 1px solid fade(white, 50%);
     content: "";
+
+    @media @mobile {
+      display: none;
+    }
   }
 
   .play-video & {
@@ -148,6 +156,7 @@
 
   .thumbnail {
     pointer-events: none;
+    max-width: 40%;
   }
 
   .side {
