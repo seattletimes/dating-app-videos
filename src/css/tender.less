@@ -1,16 +1,33 @@
 @transition-time: .3s;
 
 .tender-container {
-  width: 360px;
+  width: 400px;
   max-width: 100%;
   margin: auto;
   position: relative;
-  overflow: hidden;
   font-family: @df-sans;
-  transition: width @transition-time ease-in-out;
+  border-width: 80px 20px 80px 20px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+  transition: width @transition-time ease-in-out, border @transition-time ease-in-out;
+
+  &::before {
+    position: absolute;
+    bottom: calc(~"100% + 30px");
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 1px solid fade(white, 50%);
+    content: "";
+  }
 
   .play-video & {
     width: 970px;
+    border-width: 0;
   }
 
   .playlist-selection {
@@ -78,12 +95,15 @@
 
   }
 
+  .swipe-viewport {
+    overflow: hidden;
+  }
+
   .swipe-container {
     position: relative;
     height: 300px;
     cursor: grab;
     transition: height @transition-time ease-in-out;
-    overflow: hidden;
 
     &.moving {
       cursor: grabbing;
