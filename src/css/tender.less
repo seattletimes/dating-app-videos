@@ -1,5 +1,15 @@
 @transition-time: .3s;
 
+.interactive {
+  background: url(./assets/backdrop.jpg);
+  background-size: cover;
+  padding: 40px 0;
+
+  @media @mobile {
+    padding: 0;
+  }
+}
+
 .tender-container {
   width: 400px;
   max-width: 100%;
@@ -8,9 +18,11 @@
   font-family: @df-sans;
   border-width: 80px 20px 80px 20px;
   border-style: solid;
-  border-color: black;
+  border-color: @df-charcoal;
   border-radius: 20px;
   transition: width @transition-time ease-in-out, border @transition-time ease-in-out;
+  background: white;
+  box-shadow: 0 0 20px black;
 
   @media @mobile {
     border-color: @df-dark-gray;
@@ -27,7 +39,7 @@
     width: 60px;
     height: 20px;
     border-radius: 10px;
-    border: 1px solid fade(white, 50%);
+    border: 1px solid fade(white, 30%);
     content: "";
     box-shadow: inset -4px -4px 4px fade(white, 30%);
 
@@ -52,6 +64,7 @@
     transition: height @transition-time ease-in-out;
     box-shadow: inset 0 0 16px fade(black, 20%);
     z-index: 999;
+    background: white;
 
     .play-video.desktop & {
       height: 0px;

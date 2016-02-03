@@ -5,8 +5,8 @@
       "path": "troubled-fete"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2016/online-dating"
     }
   },
   "title": "",
@@ -14,8 +14,8 @@
   "url": "",
   "slug": "",
   "tags": [],
-  "image": "assets/social.jpg",
+  "image": "assets/splash.jpg",
   "sheets": [],
   "production": false,
-  "embedded": true
+  "embedded": false
 }

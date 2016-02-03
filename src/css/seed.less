@@ -1,6 +1,10 @@
 @import "seattletimes";
 @import "tender";
 
+.ad {
+  overflow: hidden;
+}
+
 main {
   max-width: 970px;
   padding: 20px;
@@ -27,13 +31,34 @@ main {
   .display-flex();
   overflow: hidden;
 
-  @media @mobile {
+  @media @tablet {
     display: block;
   }
 
   li {
     display: inline-block;
     padding: 8px 16px;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: "▶";
+      color: white;
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      top: 20px;
+      font-size: 25px;
+      text-shadow: 0 0 4px fade(black, 50%);
+      transition: all .3s linear;
+      opacity: 0.5;
+    }
+
+    &:hover::before {
+      opacity: 1;
+      font-size: 30px;
+    }
 
     @media @mobile {
       float: left;
@@ -50,5 +75,44 @@ main {
       text-align: center;
       font-size: 14px;
     }
+  }
+}
+
+.embedded {
+  max-width: 970px;
+  margin: auto;
+  font-family: @df-sans;
+  font-size: 16px;
+
+  h1 {
+    font-family: @df-sans;
+  }
+}
+
+.story-pitch {
+  background: @df-dark-gray;
+  overflow: hidden;
+  color: white;
+  margin-top: 40px;
+  border-radius: 20px;
+
+  .splash {
+    width: 50%;
+    float: right;
+  }
+
+  .description {
+    padding: 10px 20px;
+  }
+
+  h2 {
+    color: white;
+    margin: 0;
+  }
+
+  a {
+    color: lighten(@df-blue, 20%);
+    display: block;
+    text-align: right;
   }
 }
