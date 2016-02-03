@@ -21,10 +21,7 @@ try {
   //lame touch test does nothing!
 }
 
-var closest = function(element, classname) {
-  while (element && !element.classList.contains(classname)) element = element.parentElement;
-  return element;
-};
+var closest = require("./closest");
 
 var dot = require("./lib/dot");
 var playlistTemplate = dot.compile(require("./_playlistItem.html"));

@@ -4,6 +4,8 @@ var template = dot.compile(require("./_tender.html"));
 
 var flip = require("./flip");
 
+var closest = require("./closest");
+
 class Tender {
   constructor(element, questions, player) {
     this.element = element;
@@ -52,6 +54,11 @@ class Tender {
       self.element.classList.add("transition");
       self.element.style.transform = `translateX(0px)`;
     });
+
+    this.mc.on("tap", function(e) {
+      var side = closest(e.target, "side");
+      self.advance(side.classList.contains("left") ? "left" : "right");
+    })
   }
 
   render() {
