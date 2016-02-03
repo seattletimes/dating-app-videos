@@ -1,0 +1,8 @@
+<% data.forEach(function(item) { %>
+<li class="playlist-item">
+  <a data-id="<%= item.id %>" class="playlist-link">
+    <img src="<%= item.thumbnail %>" class="thumbnail">
+    <span class="description"><%= item.description %></span>
+  </a>
+</li>
+<% }); %>
