@@ -40,6 +40,7 @@ main {
     padding: 8px 16px;
     position: relative;
     cursor: pointer;
+    .flex(1);
 
     &::before {
       content: "▶";
@@ -90,15 +91,17 @@ main {
 }
 
 .story-pitch {
-  background: @df-dark-gray;
+  background: @df-light-gray;
   overflow: hidden;
-  color: white;
+  // color: white;
   margin-top: 40px;
   border-radius: 20px;
+  padding: 20px;
 
   .splash {
-    width: 50%;
+    width: 70%;
     float: right;
+    margin-left: 20px;
   }
 
   .description {
@@ -106,13 +109,12 @@ main {
   }
 
   h2 {
-    color: white;
     margin: 0;
   }
 
   a {
-    color: lighten(@df-blue, 20%);
     display: block;
     text-align: right;
+    margin-top: 20px;
   }
 }

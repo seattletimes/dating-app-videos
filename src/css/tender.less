@@ -4,6 +4,11 @@
   background: url(./assets/backdrop.jpg);
   background-size: cover;
   padding: 40px 0;
+  transition: all @transition-time ease-in-out;
+
+  .play-video & {
+    padding: 0;
+  }
 
   @media @mobile {
     padding: 0;
