@@ -78,7 +78,7 @@
     }
 
     &::before {
-      content: "Playlist selection";
+      content: "Playlist";
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -150,20 +150,6 @@
     cursor: grab;
     transition: height @transition-time ease-in-out;
 
-    &::before {
-      content: "< Swipe to choose >";
-      text-transform: uppercase;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      color: white;
-      font-size: 12px;
-      z-index: 999;
-      letter-spacing: 1px;
-    }
-
     &.moving {
       cursor: grabbing;
     }
@@ -191,6 +177,7 @@
       width: 100%;
       z-index: 99999;
       padding: 16px;
+      margin: 0;
     }
 
     &.right-leaning .left.side .content,
@@ -217,7 +204,7 @@
     .content {
       padding: 16px 24px;
       width: 25%;
-      bottom: 0;
+      bottom: 30px;
       position: absolute;
       color: white;
       text-transform: uppercase;
