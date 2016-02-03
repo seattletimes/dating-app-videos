@@ -13,7 +13,9 @@
   transition: width @transition-time ease-in-out, border @transition-time ease-in-out;
 
   @media @mobile {
-    border: none;
+    border-color: @df-dark-gray;
+    border-width: 4px;
+    border-radius: 0px;
   }
 
   &::before {
@@ -28,6 +30,10 @@
     border: 1px solid fade(white, 50%);
     content: "";
     box-shadow: inset -4px -4px 4px fade(white, 30%);
+
+    .play-video & {
+      display: none;
+    }
 
     @media @mobile {
       display: none;
