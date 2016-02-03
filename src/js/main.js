@@ -12,7 +12,19 @@ var bc = require("./brightcove");
 
 var dynamicPlaylist = 4720293201001;
 
+//test for desktop behavior
+try {
+  document.createElement("TouchEvent");
+  document.body.classList.add("desktop");
+} catch (err) {
+  //lame touch test does nothing!
+}
+
 bc(function(player) {
+  window.bcPlayer = player;
+
+  player.autoplay(true);
+
   player.catalog.getPlaylist(dynamicPlaylist, function(err, playlist) {
     if (err) console.log(err);
 
