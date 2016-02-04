@@ -92,45 +92,48 @@ main {
 
 .profiles {
   .display-flex();
+  .flex-wrap(wrap);
 
-  ul.names {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-
-    li {
-      display: block;
-      padding: 4px 16px;
-      border-top: 1px solid @df-light-gray;
-      cursor: pointer;
-
-      &.selected {
-        font-weight: bold;
-      }
-    }
+  @media @mobile {
+    display: block;
   }
 
-  .details {
-    padding: 4px 20px;
+  .person {
+    padding: 20px 0;
+    .display-flex();
+    .flex(0 0 50%);
+    font-size: 14px;
 
-    .hidden {
-      display: none;
+    @media @mobile {
+      // display: block;
+    }
+
+    .mug-container {
+      padding-right: 10px;
+      img { width: 100% }
+      .flex(0 0 33%);
     }
 
     h3 {
       margin: 0;
+
+      @media @mobile {
+        font-size: 22px;
+      }
     }
 
     ul {
       list-style-type: none;
-      padding: 0;
+      padding: 0 10px 0 0;
       font-family: @df-sans;
+      margin: 0;
     }
 
     b {
       color: @df-orange;
       text-transform: uppercase;
       font-weight: normal;
+      font-size: 120%;
     }
   }
 }

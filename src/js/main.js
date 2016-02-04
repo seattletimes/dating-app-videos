@@ -73,29 +73,3 @@ bc(function(player) {
   })
 
 });
-
-var profiles = $(".profiles .person");
-var names = $(".profiles [data-name]");
-
-var selectProfile = function() {
-  var id = this.getAttribute("data-name");
-  var self = this;
-  names.forEach(function(name) {
-    if (name == self) {
-      name.classList.add("selected");
-    } else {
-      name.classList.remove("selected");
-    }
-  });
-  profiles.forEach(function(person) {
-    if (person.id == id) {
-      person.classList.remove("hidden");
-    } else {
-      person.classList.add("hidden");
-    }
-  });
-};
-
-names.forEach(el => el.addEventListener("click", selectProfile));
-
-selectProfile.call(document.querySelector(".profiles [data-name]"));
