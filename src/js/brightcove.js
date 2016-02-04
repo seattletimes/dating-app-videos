@@ -6,9 +6,13 @@ var script = document.createElement("script");
 script.src = src;
 script.onload = function() {
   player = videojs("bc-player");
-  player.ready(function() {
+  if (player.readyState() == 0) {
     callbacks.forEach(fn => fn(player));
-  });
+  } else {
+    player.ready(function() {
+      callbacks.forEach(fn => fn(player));
+    });
+  }
 };
 document.head.appendChild(script);
 

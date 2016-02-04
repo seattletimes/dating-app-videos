@@ -17,8 +17,8 @@
 }
 
 .tender-container {
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   margin: auto;
   position: relative;
   font-family: @df-sans;
@@ -26,7 +26,7 @@
   border-style: solid;
   border-color: @df-charcoal;
   border-radius: 20px;
-  transition: width @transition-time ease-in-out, border @transition-time ease-in-out;
+  transition: all @transition-time ease-in-out;
   background: white;
   box-shadow: 0 0 20px black;
 
@@ -59,7 +59,7 @@
   }
 
   .play-video & {
-    width: 970px;
+    max-width: 970px;
     border-width: 0;
   }
 
