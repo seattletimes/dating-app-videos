@@ -22,6 +22,7 @@ try {
 }
 
 var closest = require("./closest");
+var $ = s => Array.prototype.slice.call(document.querySelectorAll(s));
 
 var dot = require("./lib/dot");
 var playlistTemplate = dot.compile(require("./_playlistItem.html"));
@@ -63,6 +64,7 @@ bc(function(player) {
     if (!target) return;
     var id = target.getAttribute("data-id");
     if (!id) return;
+    window.location = "#video-jump";
     document.body.classList.add("play-video");
     player.catalog.getVideo(id, function(err, media) {
       player.catalog.load(media);
@@ -72,4 +74,28 @@ bc(function(player) {
 
 });
 
+var profiles = $(".profiles .person");
+var names = $(".profiles [data-name]");
 
+var selectProfile = function() {
+  var id = this.getAttribute("data-name");
+  var self = this;
+  names.forEach(function(name) {
+    if (name == self) {
+      name.classList.add("selected");
+    } else {
+      name.classList.remove("selected");
+    }
+  });
+  profiles.forEach(function(person) {
+    if (person.id == id) {
+      person.classList.remove("hidden");
+    } else {
+      person.classList.add("hidden");
+    }
+  });
+};
+
+names.forEach(el => el.addEventListener("click", selectProfile));
+
+selectProfile.call(document.querySelector(".profiles [data-name]"));

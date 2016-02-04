@@ -21,7 +21,7 @@
           Looking for love is no longer the product of kismet or boozy nights out, but ruthless, analytical searches for perfection. Digital daters discuss how they navigate the uncharted waters of online dating.
         </p>
         <p>
-            In today’s romantic tradition, match with your online-dating video playlist by swiping left or right to choose between three sets of videos. You can also click the thumbnails underneath to watch individual clips in any order, or view outtakes from the interviews.
+            In today's romantic tradition, swipe left or right to create your online-dating video playlist. You can also click the thumbnails underneath to watch individual clips in any order, or view outtakes from the interviews.
         </p>
 
           <%= t.include("_tenderContainer.html") %>
@@ -29,14 +29,43 @@
           <h2>Outtakes and extras</h2>
           <ul class="outtakes playlist-container"></ul>
 
+          <h2>In these videos</h2>
+          <div class="profiles">
+            <ul class="names">
+              <% csv.profiles.forEach(function(row) { %>
+              <li data-name="<%= row.name %>"><%= row.name %></li>
+              <% }) %>
+              <li data-name="Renessa Rios-Strong">Renessa Rios-Strong</li>
+            </ul>
+            <div class="details">
+              <% csv.profiles.forEach(function(row) { %>
+              <div class="person" id="<%= row.name %>">
+                <h3><%= row.name %>, <%= row.age %></h3>
+                <ul>
+                  <li><b>On</b> <%= row.uses %>
+                  <li><b>Dates</b> <%= row.dates %>
+                  <li><b>Looking for</b> <%= row.looking_for %>
+                  <li><b>Hobbies</b> <%= row.hobbies %>
+                </ul>
+              </div>
+              <% }) %>
+              <div class="person" id="Renessa Rios-Strong">
+                <h3>Renessa Rios-Strong, 34</h3>
+                <ul>
+                  <li><b>Occupation</b> Author, matchmaker and dating expert at MatchDateLove.com
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <div class="story-pitch">
             <a href="http://seattletimes.com/pacific-nw-magazine/online-dating-is-starting-to-feel-like-a-second-job/">
               <img src="./assets/splash.jpg" class="splash">
             </a>
             <div class="description">
               <h2>In Pacific NW Magazine</h2>
-              <p>Looking for love: these days it's a data-driven quest for perfection.
-              <a href="http://seattletimes.com/pacific-nw-magazine/online-dating-is-starting-to-feel-like-a-second-job/">
+              <p>Looking for love: These days it's a data-driven quest for perfection.
+              <a class="jump" href="http://seattletimes.com/pacific-nw-magazine/online-dating-is-starting-to-feel-like-a-second-job/">
                 Read the full story
               </a>
             </div>

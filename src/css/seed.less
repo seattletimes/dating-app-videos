@@ -25,7 +25,7 @@ main {
   margin: 20px 0;
 
   @media @mobile {
-    margin: 0;
+    margin: 0 0 20px;
   }
 }
 
@@ -36,9 +36,10 @@ main {
   padding: 0;
   .display-flex();
   overflow: hidden;
+  font-family: @df-sans;
 
-  @media @tablet {
-    display: block;
+  @media @mobile {
+    .flex-wrap(wrap);
   }
 
   li {
@@ -47,6 +48,10 @@ main {
     position: relative;
     cursor: pointer;
     .flex(1);
+
+    @media @mobile {
+      .flex(0 0 50%);
+    }
 
     &::before {
       content: "▶";
@@ -85,6 +90,51 @@ main {
   }
 }
 
+.profiles {
+  .display-flex();
+
+  ul.names {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      display: block;
+      padding: 4px 16px;
+      border-top: 1px solid @df-light-gray;
+      cursor: pointer;
+
+      &.selected {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .details {
+    padding: 4px 20px;
+
+    .hidden {
+      display: none;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-family: @df-sans;
+    }
+
+    b {
+      color: @df-orange;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+  }
+}
+
 .embedded {
   max-width: 970px;
   margin: auto;
@@ -93,6 +143,8 @@ main {
 
   h1 {
     font-family: @df-sans;
+    font-size: 28px;
+    text-align: left;
   }
 
   .outgoing {
@@ -109,10 +161,20 @@ main {
   border-radius: 20px;
   padding: 20px;
 
+  @media @mobile {
+    padding: 0;
+    border-radius: 0;
+  }
+
   .splash {
     width: 70%;
     float: right;
     margin-left: 20px;
+
+    @media @mobile {
+      display: block;
+      width: 100%;
+    }
   }
 
   .description {
@@ -123,7 +185,7 @@ main {
     margin: 0;
   }
 
-  a {
+  a.jump {
     display: block;
     text-align: right;
     margin-top: 20px;
