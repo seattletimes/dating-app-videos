@@ -147,10 +147,12 @@
   .swipe-container {
     position: relative;
     height: 300px;
+    cursor: -webkit-grab;
     cursor: grab;
     transition: height @transition-time ease-in-out;
 
     &.moving {
+      cursor: -webkit-grabbing;
       cursor: grabbing;
     }
 
